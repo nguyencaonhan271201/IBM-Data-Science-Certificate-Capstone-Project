@@ -23,6 +23,10 @@ for site in launch_sites:
         }
     )
 
+slider_marks = {}
+for i in range(0, 10001, 1000):
+    slider_marks[i] = str(i)
+
 # Create a dash application
 app = dash.Dash(__name__)
 
@@ -51,6 +55,7 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                                 min=0,
                                                 max=10000,
                                                 step=1000,
+                                                marks=slider_marks,
                                                 value=[min_payload, max_payload]),
 
                                 # TASK 4: Add a scatter chart to show the correlation between payload and launch success
